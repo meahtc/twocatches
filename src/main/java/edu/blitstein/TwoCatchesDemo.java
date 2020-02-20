@@ -4,6 +4,7 @@ import edu.blitstein.exception.DivideByZeroException;
 import edu.blitstein.exception.NegativeNumberException;
 import edu.blitstein.widget.WidgetScore;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TwoCatchesDemo {
@@ -25,7 +26,10 @@ public class TwoCatchesDemo {
         } catch (NegativeNumberException e) {
             System.out.println("Cannot have a negative number of " + e.getMessage());
             finishPoint = "NegativeNumberException";
-        } finally {
+        } catch (InputMismatchException e) {
+            System.out.println("Must enter a number");
+            finishPoint = "InputMismatchException";
+        }finally {
             System.out.println("Finished after: " + finishPoint);
         }
         System.out.println("End of program.");
